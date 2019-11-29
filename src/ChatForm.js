@@ -1,53 +1,3 @@
-# socket
-
-```js
-//App.js
-
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import ChatForm from './ChatForm'
-
-import socket from './socket'
-
-class App extends React.Component {
-
-    state = {
-        logs: [] // 전체 대화 내용
-    }
-
-    componentDidMount() { 
-        socket.on('chat-msg', (obj) => {
-            const logs2 = this.state.logs
-            obj.key = 'key-' + (this.state.logs.length + 1)
-            logs2.unshift(obj)
-            this.setState({logs: logs2})
-        })
-    }       
-
-    render() {
-        const messages = this.state.logs.map(e => (
-            <div key={e.key}>
-                <span>{e.name}  :  </span>
-                <span>{e.message}</span>
-            </div>
-        ))
-        return (
-            <div>
-                <ChatForm />
-                <div>{messages}</div>
-            </div>
-        )
-    }
-
-}
-
-export default App;
-
-
-```
-
-```js
 import React from 'react';
 import socket from './socket'
 
@@ -88,7 +38,6 @@ class ChatForm extends React.Component {
                 <input 
                 onChange={this.nameChanged}
                 value={this.state.name}/>
-                
                 <span> 내용 : </span>
                 <input 
                 onChange={this.messageChanged}
@@ -103,13 +52,3 @@ class ChatForm extends React.Component {
 }
 
 export default ChatForm
-
-```
-
-```js
-import socketio from 'socket.io-client'
-
-const socket = socketio.connect('http://5058d674.ngrok.io/')
-
-export default socket
-```
