@@ -48,6 +48,8 @@ export default App;
 ```
 
 ```js
+//ChatForm.js
+
 import React from 'react';
 import socket from './socket'
 
@@ -107,6 +109,8 @@ export default ChatForm
 ```
 
 ```js
+// socket.js
+
 import socketio from 'socket.io-client'
 
 const socket = socketio.connect('https://reactsocketiomo.herokuapp.com/')
