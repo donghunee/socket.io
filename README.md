@@ -109,7 +109,7 @@ export default ChatForm
 ```js
 import socketio from 'socket.io-client'
 
-const socket = socketio.connect('http://bb4e0dc8.ngrok.io/')
+const socket = socketio.connect('https://reactsocketiomo.herokuapp.com/')
 
 export default socket
 ```
